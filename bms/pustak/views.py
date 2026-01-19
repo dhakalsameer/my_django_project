@@ -28,4 +28,4 @@ def update_book(request, id):
         update_book.save()
         return redirect('/')
     context = {'book': update_book}
-    return render(request, 'pustak/update_book.html', context)
+    return render(request, 'pustak/updatebooks.html', context)
