@@ -32,6 +32,8 @@
             Add Now
         </button>
 
+        
+
     </form>
 
     <br>
@@ -60,8 +62,15 @@
                         <span class="text-muted">No Image</span>
                     {% endif %}
                 </td>
-               
-           
+                
+                <td>
+                <a href ="{% url 'update_book' book.id %}" class="btn btn-success btn-sm">Update</a>
+               </td>
+
+               <td>
+                <a href ="{% url 'delete_book' book.id %}" class="btn btn-danger btn-sm">Delete</a>
+               </td>
+              
                
             </tr>
             {% endfor %}

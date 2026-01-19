@@ -19,10 +19,14 @@ from django.contrib import admin
 from django.urls import path
 from pustak.views import book
 from django.conf.urls.static import static
+from pustak.views import delete_book
+from pustak.views import update_book
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',book,name='book')
+    path('',book,name='book'),
+    path('delete_book/<id>/',delete_book, name='delete_book'),
+    path('update_book/<id>/',update_book, name='update_book')
 ]
 
 if settings.DEBUG:

@@ -13,3 +13,19 @@ def book(request):
     queryset = Book.objects.all()
     context = {'books': queryset}
     return render(request,'pustak/books.html', context)
+
+def delete_book(request, id):
+    delete_book = Book.objects.get(id=id)
+    delete_book.delete()
+    return redirect('/')
+
+def update_book(request, id):
+    update_book = Book.objects.get(id=id)
+    if request.method == 'POST':
+        update_book.book_name = request.POST.get('book_name')
+        update_book.book_description = request.POST.get('book_description')
+        update_book.book_image = request.FILES.get('book_image',update_book.book_image)
+        update_book.save()
+        return redirect('/')
+    context = {'book': update_book}
+    return render(request, 'pustak/update_book.html', context)
