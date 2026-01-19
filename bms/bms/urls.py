@@ -17,7 +17,7 @@ Including another URLconf
 from django.conf import settings
 from django.contrib import admin
 from django.urls import path
-from pustak.views import book
+from pustak.views import book, login_page, register_page, logout_page
 from django.conf.urls.static import static
 from pustak.views import delete_book
 from pustak.views import update_book
@@ -26,7 +26,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',book,name='book'),
     path('delete_book/<id>/',delete_book, name='delete_book'),
-    path('update_book/<id>/',update_book, name='update_book')
+    path('update_book/<id>/',update_book, name='update_book'),
+    path('login',login_page, name='login'),
+    path('register',register_page, name='register'),
+    path('logout',logout_page, name='logout'),
 ]
 
 if settings.DEBUG:
